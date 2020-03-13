@@ -688,6 +688,12 @@ defmodule Phoenix.Socket do
       payload: %{}
     }
 
+    Logger.debug(
+      "#{inspect(__MODULE__)} replying to heartbeat from ref: #{inspect(ref)}, socket: #{
+        inspect(socket)
+      }"
+    )
+
     {:reply, :ok, encode_reply(socket, reply), {state, socket}}
   end
 
